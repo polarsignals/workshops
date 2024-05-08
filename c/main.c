@@ -1,7 +1,6 @@
 #include <stdio.h>
 int main() {
-   // printf() displays the string inside quotation
-   printf("profiling");
+   printf("profiling\n");
    return 0;
 }
 

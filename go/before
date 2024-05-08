@@ -1,0 +1,15 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/polarsignals/workshops/go
+BenchmarkFindPrimes-10    	      24	  49795026 ns/op	 3217377 B/op	      27 allocs/op
+BenchmarkFindPrimes-10    	      24	  49296280 ns/op	 3216640 B/op	      27 allocs/op
+BenchmarkFindPrimes-10    	      24	  49225927 ns/op	 3216640 B/op	      27 allocs/op
+BenchmarkFindPrimes-10    	      24	  49232958 ns/op	 3216699 B/op	      27 allocs/op
+BenchmarkFindPrimes-10    	      24	  49374641 ns/op	 3216644 B/op	      27 allocs/op
+BenchmarkFindPrimes-10    	      24	  49245429 ns/op	 3216784 B/op	      27 allocs/op
+BenchmarkFindPrimes-10    	      24	  49226318 ns/op	 3216640 B/op	      27 allocs/op
+BenchmarkFindPrimes-10    	      24	  49199208 ns/op	 3216640 B/op	      27 allocs/op
+BenchmarkFindPrimes-10    	      24	  49223337 ns/op	 3216640 B/op	      27 allocs/op
+BenchmarkFindPrimes-10    	      24	  49278066 ns/op	 3216640 B/op	      27 allocs/op
+PASS
+ok  	github.com/polarsignals/workshops/go	12.519s
