@@ -1,11 +1,32 @@
-use std::f64;
+use std::thread::sleep;
+use std::time::Duration;
+
+fn main() {
+    loop {
+        let limit = 100;
+        println!("{:?}", find_primes(limit));
+        sleep(Duration::from_secs(1));
+    }
+}
+
+fn find_primes(limit: i32) -> Vec<i32> {
+    let mut primes = Vec::new();
+    for num in 2..=limit {
+        if is_prime(num) {
+            primes.push(num);
+        }
+    }
+    return primes;
+}
 
 fn is_prime(n: i32) -> bool {
     if n <= 1 {
         return false;
     }
-    let limit = (n as f64).sqrt() as i32;
-    for i in 2..=limit {
+    for i in 2..=n {
+        if i * i > n {
+            break;
+        }
         if n % i == 0 {
             return false;
         }
@@ -13,16 +34,4 @@ fn is_prime(n: i32) -> bool {
     true
 }
 
-fn find_primes(limit: i32) {
-    for num in 2..=limit {
-        if is_prime(num) {
-            println!("{}", num);
-        }
-    }
-}
-
-fn main() {
-    // TODO: Wrap with endless loop and 1s sleep
-    let limit = 1_000_000;
-    find_primes(limit);
-}
+// TODO: Add the improved version using sieve_of_eratosthenes
