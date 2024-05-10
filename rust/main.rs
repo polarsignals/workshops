@@ -9,7 +9,7 @@ fn main() {
     }
 }
 
-fn find_primes(limit: i32) -> Vec<i32> {
+fn find_primes(limit: usize) -> Vec<usize> {
     let mut primes = Vec::new();
     for num in 2..=limit {
         if is_prime(num) {
@@ -32,7 +32,7 @@ fn find_primes2(limit: usize) -> Vec<usize> {
     return (2..limit).filter(|&i| primes[i]).collect();
 }
 
-fn is_prime(n: i32) -> bool {
+fn is_prime(n: usize) -> bool {
     if n <= 1 {
         return false;
     }
