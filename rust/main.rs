@@ -3,8 +3,8 @@ use std::time::Duration;
 
 fn main() {
     loop {
-        let limit = 100;
-        println!("{:?}", find_primes(limit));
+        let limit = 10_000_000;
+        println!("{:?}", find_primes(limit).len());
         sleep(Duration::from_secs(1));
     }
 }
@@ -32,6 +32,17 @@ fn is_prime(n: i32) -> bool {
         }
     }
     true
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_find_primes() {
+        let result = find_primes(10);
+        assert_eq!(result, [2,3,5,7]);
+    }
 }
 
 // TODO: Add the improved version using sieve_of_eratosthenes

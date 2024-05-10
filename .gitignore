@@ -1,1 +1,2 @@
-python/venv
+/python/venv
+/rust/target/
