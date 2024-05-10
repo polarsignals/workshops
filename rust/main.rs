@@ -19,6 +19,23 @@ fn find_primes(limit: i32) -> Vec<i32> {
     return primes;
 }
 
+fn find_primes2(limit: usize) -> Vec<usize> {
+    let mut primes = vec![true; limit];
+
+    for p in (2..).take_while(|&p| p * p <= limit) {
+        if primes[p] {
+            for i in (p * p..limit).step_by(p) {
+                primes[i] = false;
+            }
+        }
+    }
+    return primes[2..]
+        .into_iter()
+        .enumerate()
+        .filter_map(|(i, &x)| x.then_some(i + 2))
+        .collect();
+}
+
 fn is_prime(n: i32) -> bool {
     if n <= 1 {
         return false;
@@ -41,8 +58,12 @@ mod tests {
     #[test]
     fn test_find_primes() {
         let result = find_primes(10);
-        assert_eq!(result, [2,3,5,7]);
+        assert_eq!(result, [2, 3, 5, 7]);
+    }
+
+    #[test]
+    fn test_find_primes2() {
+        let result = find_primes2(10);
+        assert_eq!(result, [2, 3, 5, 7]);
     }
 }
-
-// TODO: Add the improved version using sieve_of_eratosthenes
