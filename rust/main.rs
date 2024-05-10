@@ -29,11 +29,7 @@ fn find_primes2(limit: usize) -> Vec<usize> {
             }
         }
     }
-    return primes[2..]
-        .into_iter()
-        .enumerate()
-        .filter_map(|(i, &x)| x.then_some(i + 2))
-        .collect();
+    return (2..limit).filter(|&i| primes[i]).collect();
 }
 
 fn is_prime(n: i32) -> bool {
