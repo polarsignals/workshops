@@ -1,15 +1,4 @@
-use std::thread::sleep;
-use std::time::Duration;
-
-fn main() {
-    loop {
-        let limit = 10_000_000;
-        println!("{:?}", find_primes(limit).len());
-        sleep(Duration::from_secs(1));
-    }
-}
-
-fn find_primes(limit: usize) -> Vec<usize> {
+pub fn find_primes(limit: usize) -> Vec<usize> {
     let mut primes = Vec::new();
     for num in 2..=limit {
         if is_prime(num) {
@@ -19,7 +8,7 @@ fn find_primes(limit: usize) -> Vec<usize> {
     return primes;
 }
 
-fn find_primes2(limit: usize) -> Vec<usize> {
+pub fn find_primes2(limit: usize) -> Vec<usize> {
     let mut primes = vec![true; limit];
 
     for p in (2..).take_while(|&p| p * p <= limit) {

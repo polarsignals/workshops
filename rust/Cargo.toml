@@ -8,6 +8,9 @@ edition = "2021"
 [dependencies]
 itertools = "0.12.1"
 
-[[bin]]
-name = "rust"
-path = "main.rs"
+[dev-dependencies]
+criterion = "0.4"
+
+[[bench]]
+name = "primes"
+harness = false
