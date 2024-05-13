@@ -1,0 +1,5 @@
+/go/*/cpu.out
+/go/*/mem.out
+/go/bin/
+/python/venv
+/rust/target/
