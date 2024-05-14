@@ -16,7 +16,7 @@ writing benchmarks helps optimize its execution.
 ### Using Snaps
 ```
 snap install parca-agent --classic --edge
-snap set parca-agent metadata-external-labels=username=<username> 
+snap set parca-agent metadata-external-labels=machine=<username> 
 snap set parca-agent remote-store-bearer-token=<token>
 snap start parca-agent
 ```
