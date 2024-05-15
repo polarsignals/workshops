@@ -5,7 +5,7 @@ import unittest
 def find_primes(limit = 10_000):
 	primes = []
 	for i in range(2, limit):
-		if is_rime(i):
+		if is_prime(i):
 			primes.append(i)
 	return primes
 
