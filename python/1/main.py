@@ -26,7 +26,7 @@ if __name__ == '__main__':
 		start = time.time()
 		count = len(find_primes(1_000_000))
 		end = time.time()
-		print(f"{count} primes in {end - start} found")
+		print(f"{count} primes in {end - start}s found")
 		time.sleep(1)
 
 
