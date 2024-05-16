@@ -6,18 +6,20 @@ import (
 )
 
 func main() {
+	limit := 10_000_000
+	isPrime := make([]bool, 0, limit+1)
+
 	for {
 		start := time.Now()
-		found := findPrimes(10_000_000)
+		found := findPrimes(isPrime, limit)
 		log.Printf("%d primes in %s found", len(found), time.Since(start))
 		time.Sleep(1 * time.Second)
 	}
 }
 
-func findPrimes(limit int) []int {
-	isPrime := make([]bool, limit+1)
-	for i := range isPrime {
-		isPrime[i] = true
+func findPrimes(isPrime []bool, limit int) []int {
+	for _ = range limit + 1 {
+		isPrime = append(isPrime, true)
 	}
 	for p := 2; p*p <= limit; p++ {
 		if isPrime[p] {
@@ -32,5 +34,8 @@ func findPrimes(limit int) []int {
 			primes = append(primes, p)
 		}
 	}
+
+	isPrime = isPrime[:0]
+
 	return primes
 }

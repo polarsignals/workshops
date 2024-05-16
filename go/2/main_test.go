@@ -5,7 +5,9 @@ import (
 )
 
 func TestFindPrimes(t *testing.T) {
-	primes := findPrimes(10)
+	isPrimes := make([]bool, 0, 10+1)
+
+	primes := findPrimes(isPrimes, 10)
 	expected := []int{2, 3, 5, 7}
 	for i := range expected {
 		if primes[i] != expected[i] {
@@ -15,7 +17,10 @@ func TestFindPrimes(t *testing.T) {
 }
 
 func BenchmarkFindPrimes(b *testing.B) {
+	limit := 1_000_000
+	isPrimes := make([]bool, 0, limit+1)
+
 	for i := 0; i < b.N; i++ {
-		findPrimes(1_000_000)
+		findPrimes(isPrimes, limit)
 	}
 }
