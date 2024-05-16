@@ -1,4 +1,4 @@
-use rust::find_primes2;
+use rust::find_primes;
 use std::thread::sleep;
 use std::time::Duration;
 use std::time::Instant;
@@ -10,7 +10,7 @@ fn main() {
     loop {
         let start = Instant::now();
 
-        let count = find_primes2(limit).len();
+        let count = find_primes(limit).len();
 
         let end = Instant::now();
         let duration = end.duration_since(start);
