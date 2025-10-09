@@ -10,6 +10,16 @@ pub fn find_primes(limit: usize) -> Vec<usize> {
 }
 
 #[inline(never)]
+pub fn find_primes_100000() -> Vec<usize> {
+    find_primes(100_000)
+}
+
+#[inline(never)]
+pub fn find_primes_1000000() -> Vec<usize> {
+    find_primes(1_000_000)
+}
+
+#[inline(never)]
 pub fn find_primes2(limit: usize) -> Vec<usize> {
     let mut primes = vec![true; limit];
 
