@@ -14,4 +14,4 @@ Each language will have a dedicated lab where you'll profile a sample applicatio
 ### Linux VM with lima on macOS
 
 For macOS users are recommended to use [lima](https://github.com/lima-vm/lima) to run a Linux VM. 
-To get started use `brew install lima` followed by `limactl start`. Once finished access the VM by running `lima`. 
+To get started use `brew install lima` followed by `limactl start --mount-writable`. Once finished access the VM by running `lima`. 
