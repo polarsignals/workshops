@@ -37,13 +37,13 @@ The binary supports different execution modes through CLI arguments:
 
 #### Default mode (Single-loop prime computation)
 ```bash
-cargo run
+cargo run --release
 ```
 Runs a single loop computing primes up to 1,000,000.
 
 #### Concurrent mode
 ```bash
-cargo run -- --concurrent
+cargo run --release -- --concurrent
 ```
 Runs two parallel tasks using tokio:
 - Task 1: Computes primes up to 1,000,000
@@ -51,7 +51,7 @@ Runs two parallel tasks using tokio:
 
 #### Memory allocation comparison mode
 ```bash
-cargo run -- --memory
+cargo run --release -- --memory
 ```
 Demonstrates memory allocation patterns:
 - Pre-allocated vector: Allocates 10 million capacity upfront

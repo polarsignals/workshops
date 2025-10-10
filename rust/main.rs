@@ -84,7 +84,7 @@ async fn run_concurrent() {
     }
 }
 
-// example profile for this code: https://pprof.me/d9ca82a94cfa20004db3fbdc4840b291
+// example profile for this code: https://pprof.me/43eeab204f2385da95c64d589ad90c20
 fn run_memory_example() {
 
     println!("Starting memory allocation comparison");
@@ -102,13 +102,13 @@ fn run_memory_example() {
 #[inline(never)]
 fn memory_preallocated() {
     // Pre-allocated vector with huge capacity
-    let large_limit = 10_000_000usize; // 10 million
-    println!("Pre-allocated vector (capacity = {} / 10 million):", large_limit);
+    let large_limit = 100_000_000usize; // 100 million
+    println!("Pre-allocated vector (capacity = {} / 100 million):", large_limit);
     let start = Instant::now();
     let mut pre_allocated = Vec::with_capacity(large_limit);
 
-    // Only fill with 1 million elements
-    for num in 0..1_000_000 {
+    // Only fill with 100 million elements
+    for num in 0..100_000_000 {
         pre_allocated.push(num);
     }
 
@@ -125,8 +125,8 @@ fn memory_preallocated() {
 #[inline(never)]
 fn memory_growing() {
     // Growing vector with small initial capacity
-    let small_limit = 1_000_000; // 1 million
-    println!("Growing vector (initial capacity = 10, target = {} / 1 million):", small_limit);
+    let small_limit = 100_000_000; // 100 million
+    println!("Growing vector (initial capacity = 10, target = {} / 100 million):", small_limit);
     let start = Instant::now();
     let mut growing = Vec::with_capacity(10);
     let mut reallocation_count = 0;
@@ -138,7 +138,7 @@ fn memory_growing() {
         // Track when reallocation happens
         if growing.capacity() != last_capacity {
             reallocation_count += 1;
-            if reallocation_count <= 10 {  // Only show first 10 reallocations
+            if reallocation_count <= 25  {  // Only show first 25 reallocations
                 println!("  Reallocation #{}: capacity {} -> {}",
                         reallocation_count, last_capacity, growing.capacity());
             }
