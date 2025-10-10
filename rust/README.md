@@ -21,6 +21,12 @@ snap set parca-agent remote-store-bearer-token=<token>
 snap start parca-agent
 ```
 
+### Using binaries
+
+```
+curl -sL https://github.com/parca-dev/parca-agent/releases/download/v0.42.0/parca-agent_0.42.0_`uname -s`_`uname -m` chmod +x ./parca-agent*
+```
+
 ## Run the binaries
 
 At the same time run the Parca Agent and you'll see the binary being profiled.
