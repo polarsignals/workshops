@@ -24,7 +24,12 @@ snap start parca-agent
 ### Using binaries
 
 ```
-curl -sL https://github.com/parca-dev/parca-agent/releases/download/v0.42.0/parca-agent_0.42.0_`uname -s`_`uname -m` chmod +x ./parca-agent*
+curl -sL https://github.com/parca-dev/parca-agent/releases/download/v0.42.0/parca-agent_0.42.0_Linux_x86_64 chmod +x ./parca-agent*
+curl -sL https://github.com/parca-dev/parca-agent/releases/download/v0.42.0/parca-agent_0.42.0_Linux_aarch64 chmod +x ./parca-agent*
+``` 
+
+```
+sudo ./parca-agent --remote-store-address=grpc.polarsignals.com:443 --remote-store-bearer-token=ey....
 ```
 
 ## Run the binaries
@@ -35,6 +40,10 @@ At the same time run the Parca Agent and you'll see the binary being profiled.
 sudo snap install rustup --classic
 rustup default stable
 cargo run --release # The --release flag is important for performance!
+```
+
+```
+./parca-agent 
 ```
 
 ### Available CLI modes
