@@ -31,6 +31,32 @@ rustup default stable
 cargo run --release # The --release flag is important for performance!
 ```
 
+### Available CLI modes
+
+The binary supports different execution modes through CLI arguments:
+
+#### Default mode (Single-loop prime computation)
+```bash
+cargo run
+```
+Runs a single loop computing primes up to 1,000,000.
+
+#### Concurrent mode
+```bash
+cargo run -- --concurrent
+```
+Runs two parallel tasks using tokio:
+- Task 1: Computes primes up to 1,000,000
+- Task 2: Computes primes up to 100,000
+
+#### Memory allocation comparison mode
+```bash
+cargo run -- --memory
+```
+Demonstrates memory allocation patterns:
+- Pre-allocated vector: Allocates 10 million capacity upfront
+- Growing vector: Starts with capacity 10, grows dynamically to 1 million
+
 ## Run the tests
 
 ```bash
