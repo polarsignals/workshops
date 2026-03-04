@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: profiling-demo
+  labels:
+    app: profiling-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: profiling-demo
+  template:
+    metadata:
+      labels:
+        app: profiling-demo
+    spec:
+      containers:
+        - name: profiling-demo
+          image: quay.io/brancz/profiling-demo-nodejs:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+              name: http
+          livenessProbe:
+            httpGet:
+              path: /healthy
+              port: http
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthy
+              port: http
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
